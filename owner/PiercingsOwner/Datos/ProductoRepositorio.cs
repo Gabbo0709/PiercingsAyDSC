@@ -8,16 +8,33 @@ using MySql.Data.MySqlClient;
 
 namespace PiercingsOwner.Datos
 {
+    /// <summary>
+    /// Repositorio para manejar operaciones de productos en la base de datos.
+    /// Implementa la interfaz IProductoRepositorio.
+    /// </summary>
     internal class ProductoRepositorio : IProductoRepositorio
     {
+        /// <summary>
+        /// Cadena de conexión a la base de datos.
+        /// </summary>
         private readonly string _connectionString;
+        /// <summary>
+        /// Objeto de conexión a la base de datos.
+        /// Se inicializa en el constructor y se utiliza para abrir y cerrar conexiones.
+        /// </summary>
         private MySqlConnection _connection;
+        /// <summary>
+        /// Constructor que inicializa la cadena de conexión y prueba la conexión a la base de datos.
+        /// </summary>
         public ProductoRepositorio()
         {
             _connectionString = "server=localhost;port=3306;database=PiercingsDB;uid=sa;password=123456;";
             _connection = new MySqlConnection(_connectionString);
-            this.ProbarConexion();
+            ProbarConexion();
         }
+        /// <summary>
+        /// Abre una conexión a la base de datos si está cerrada.
+        /// </summary>
         private void AbrirConexion()
         {
             if (_connection.State == System.Data.ConnectionState.Closed)
@@ -25,6 +42,9 @@ namespace PiercingsOwner.Datos
                 _connection.Open();
             }
         }
+        /// <summary>
+        /// Cierra la conexión a la base de datos si está abierta.
+        /// </summary>
         private void CerrarConexion()
         {
             if (_connection.State == System.Data.ConnectionState.Open)
@@ -32,6 +52,12 @@ namespace PiercingsOwner.Datos
                 _connection.Close();
             }
         }
+        /// <summary>
+        /// Prueba la conexión a la base de datos.
+        /// Lanza una excepción si no se puede establecer la conexión.
+        /// </summary>
+        /// <returns>True si la conexión se establece correctamente, false en caso contrario.</returns>
+        /// <exception cref="InvalidOperationException">Lanza si no se puede establecer la conexión.</exception>
         private bool ProbarConexion()
         {
             try
