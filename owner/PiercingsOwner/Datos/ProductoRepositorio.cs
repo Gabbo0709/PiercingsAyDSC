@@ -58,14 +58,16 @@ namespace PiercingsOwner.Datos
                 {
                     while (reader.Read())
                     {
-                        Producto producto = new
+                        Producto producto = new Producto
                         (
                             reader.GetInt32("Id"),
-                            reader.GetString("Nombre"),
-                            reader.GetInt32("CategoriaId"),
-                            reader.GetString("Color"),
+                            Producto.ParseCategoriaToId((Categoria)reader.GetInt32("CategoriaId")),
                             reader.GetInt32("Inventario")
-                        );
+                        )
+                        {
+                            Nombre = reader.GetString("Nombre"),
+                            Color = reader.GetString("Color")
+                        };
                         productos.Add(producto);
                     }
                 }
@@ -98,11 +100,13 @@ namespace PiercingsOwner.Datos
                         producto = new Producto
                         (
                             reader.GetInt32("Id"),
-                            reader.GetString("Nombre"),
-                            reader.GetInt32("CategoriaId"),
-                            reader.GetString("Color"),
+                            Producto.ParseCategoriaToId((Categoria)reader.GetInt32("CategoriaId")),
                             reader.GetInt32("Inventario")
-                        );
+                        )
+                        {
+                            Nombre = reader.GetString("Nombre"),
+                            Color = reader.GetString("Color")
+                        };
                     }
                 }
             }
@@ -135,14 +139,16 @@ namespace PiercingsOwner.Datos
                 {
                     while (reader.Read())
                     {
-                        Producto producto = new
+                        Producto producto = new Producto
                         (
                             reader.GetInt32("Id"),
-                            reader.GetString("Nombre"),
-                            reader.GetInt32("CategoriaId"),
-                            reader.GetString("Color"),
+                            Producto.ParseCategoriaToId((Categoria)reader.GetInt32("CategoriaId")),
                             reader.GetInt32("Inventario")
-                        );
+                        )
+                        {
+                            Nombre = reader.GetString("Nombre"),
+                            Color = reader.GetString("Color")
+                        };
                         productos.Add(producto);
                     }
                 }

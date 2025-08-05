@@ -18,7 +18,7 @@ internal class Producto
     /// <summary>
     /// Gets or sets the name of the product.
     /// </summary>
-    public string Nombre { get; set; }
+    public required string Nombre { get; set; }
 
     /// <summary>
     /// Gets or sets the category of the product.
@@ -28,7 +28,7 @@ internal class Producto
     /// <summary>
     /// Gets or sets the color of the product.
     /// </summary>
-    public string Color { get; set; }
+    public required string Color { get; set; }
 
     /// <summary>
     /// Gets or sets the inventory count of the product.
@@ -50,12 +50,10 @@ internal class Producto
     /// <param name="categoria">The category of the product.</param>
     /// <param name="color">The color of the product.</param>
     /// <param name="inventario">The inventory count of the product.</param>
-    public Producto(int id, string nombre, int categoria, string color, int inventario)
+    public Producto(int id, int categoria, int inventario)
     {
         Id = id;
-        Nombre = nombre;
         Categoria = ParseIdToCategoria(categoria);
-        Color = color;
         Inventario = inventario;
     }
 
