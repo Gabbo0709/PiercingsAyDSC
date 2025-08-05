@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PiercingsOwner.Presentacion
 {
-    public partial class Menu : Form
+    public partial class vistaGestionarProductos : Form
     {
-        public Menu()
+        public vistaGestionarProductos()
         {
             InitializeComponent();
         }

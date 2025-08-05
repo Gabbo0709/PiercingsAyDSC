@@ -1,6 +1,6 @@
 ﻿namespace PiercingsOwner.Presentacion
 {
-    partial class Menu
+    partial class vistaGestionarProductos
     {
         /// <summary>
         /// Required designer variable.
