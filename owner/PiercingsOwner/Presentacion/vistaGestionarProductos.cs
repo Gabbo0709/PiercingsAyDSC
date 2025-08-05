@@ -10,11 +10,46 @@ using System.Windows.Forms;
 
 namespace PiercingsOwner.Presentacion
 {
-    public partial class vistaGestionarProductos : Form
+    public partial class adminMenu : Form
     {
-        public vistaGestionarProductos()
+        public adminMenu()
         {
             InitializeComponent();
+        }
+
+        private void tablaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bttnSalida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bttnEntrada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bttnDeshabilitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bttnAniadir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEntrada_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
