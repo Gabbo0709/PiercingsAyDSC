@@ -85,7 +85,7 @@ namespace PiercingsOwner.Datos
         public Producto BuscarPorId(int id)
         {
             AbrirConexion();
-            Producto producto = null;
+            Producto producto = null!;
             try
             {
                 string query = "SELECT * FROM Productos WHERE Id = @Id";
@@ -110,11 +110,17 @@ namespace PiercingsOwner.Datos
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al buscar producto por ID: {ex.Message}");
+                throw new InvalidOperationException("Error al buscar el producto por ID.");
             }
             finally
             {
                 CerrarConexion();
             }
+            if (producto == null)
+            {
+                throw new InvalidOperationException("Producto no encontrado.");
+            }
+            return producto;
         }
 
         public List<Producto> BuscarTodos()
