@@ -54,12 +54,12 @@ internal class Producto
     {
         Id = id;
         Nombre = nombre;
-        Categoria = ParseCategoria(categoria);
+        Categoria = ParseIdToCategoria(categoria);
         Color = color;
         Inventario = inventario;
     }
 
-    public Categoria ParseCategoria(int categoriaId)
+    public Categoria ParseIdToCategoria(int categoriaId)
     {
         return categoriaId switch
         {
@@ -67,6 +67,17 @@ internal class Producto
             2 => Categoria.PIERCING,
             3 => Categoria.ATRAPASUENO,
             _ => throw new ArgumentOutOfRangeException(nameof(categoriaId), "Invalid category ID")
+        };
+    }
+
+    public static int ParseCategoriaToId(Categoria categoria)
+    {
+        return categoria switch
+        {
+            Categoria.ANILLO => 1,
+            Categoria.PIERCING => 2,
+            Categoria.ATRAPASUENO => 3,
+            _ => throw new ArgumentOutOfRangeException(nameof(categoria), "Invalid category")
         };
     }
 }

@@ -53,8 +53,7 @@ namespace PiercingsOwner.Datos
             {
                 string query = "SELECT * FROM Productos WHERE CategoriaId IN (@CategoriaIds)";
                 MySqlCommand command = new MySqlCommand(query, _connection);
-                command.Parameters.AddWithValue("@CategoriaIds", string.Join(",", categorias.Select(c => c.Id)));
-
+                command.Parameters.AddWithValue("@CategoriaIds", string.Join(", ", categorias.Select(c => Producto.ParseCategoriaToId(c))));
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
