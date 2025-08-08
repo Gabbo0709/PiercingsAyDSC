@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiercingsOwner.Datos
 {
-    internal interface IRepositorio<T> where T : class
+    public interface IRepositorio<T> where T : class
     {
         T Guardar(T entidad);
         T BuscarPorId(int id);
