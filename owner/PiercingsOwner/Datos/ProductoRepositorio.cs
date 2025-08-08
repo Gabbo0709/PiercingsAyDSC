@@ -35,7 +35,7 @@ namespace PiercingsOwner.Datos
         /// <summary>
         /// Abre una conexión a la base de datos si está cerrada.
         /// </summary>
-        private void AbrirConexion()
+        public void AbrirConexion()
         {
             if (_connection.State == System.Data.ConnectionState.Closed)
             {
