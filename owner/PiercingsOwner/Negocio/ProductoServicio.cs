@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PiercingsOwner.Negocio
 {
-    internal class ProductoServicio : IProductoServicio
+    public class ProductoServicio : IProductoServicio
     {
         private readonly IProductoRepositorio _productoRepositorio;
 
@@ -17,7 +17,7 @@ namespace PiercingsOwner.Negocio
             _productoRepositorio = new ProductoRepositorio();
         }
 
-        public bool CrearProducto(Producto producto)
+        bool IProductoServicio.CrearProducto(Producto producto)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace PiercingsOwner.Negocio
             }
         }
 
-        public bool EditarProducto(Producto producto)
+        bool IProductoServicio.EditarProducto(Producto producto)
         {
             try
             {
@@ -43,17 +43,17 @@ namespace PiercingsOwner.Negocio
             }
         }
 
-        public List<Producto> FiltrarProductosPorCategoria(List<Categoria> categorias)
+        List<Producto> IProductoServicio.FiltrarProductosPorCategoria(List<Categoria> categorias)
         {
             return _productoRepositorio.BuscarPorCategoria(categorias);
         }
 
-        public Producto ObtenerProductoPorId(int id)
+        Producto IProductoServicio.ObtenerProductoPorId(int id)
         {
             return _productoRepositorio.BuscarPorId(id);
         }
 
-        public List<Producto> ObtenerProductos()
+        List<Producto> IProductoServicio.ObtenerProductos()
         {
             return _productoRepositorio.BuscarTodos();
         }

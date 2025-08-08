@@ -1,6 +1,6 @@
 ﻿namespace PiercingsOwner.Negocio.ModeloDeNegocio;
 
-enum Categoria
+public enum Categoria
 {
     ANILLO,
     PIERCING,

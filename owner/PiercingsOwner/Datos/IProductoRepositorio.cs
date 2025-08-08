@@ -7,7 +7,7 @@ using PiercingsOwner.Negocio.ModeloDeNegocio;
 
 namespace PiercingsOwner.Datos
 {
-    internal interface IProductoRepositorio : IRepositorio<Producto>
+    public interface IProductoRepositorio : IRepositorio<Producto>
     {
         List<Producto> BuscarPorCategoria(List<Categoria> categorias);
     }

@@ -12,7 +12,7 @@ namespace PiercingsOwner.Datos
     /// Repositorio para manejar operaciones de productos en la base de datos.
     /// Implementa la interfaz IProductoRepositorio.
     /// </summary>
-    internal class ProductoRepositorio : IProductoRepositorio
+    public class ProductoRepositorio : IProductoRepositorio
     {
         /// <summary>
         /// Cadena de conexión a la base de datos.
@@ -58,7 +58,7 @@ namespace PiercingsOwner.Datos
         /// </summary>
         /// <returns>True si la conexión se establece correctamente, false en caso contrario.</returns>
         /// <exception cref="InvalidOperationException">Lanza si no se puede establecer la conexión.</exception>
-        private bool ProbarConexion()
+        public bool ProbarConexion()
         {
             try
             {

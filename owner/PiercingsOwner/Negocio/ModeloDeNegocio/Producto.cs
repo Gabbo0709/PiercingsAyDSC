@@ -8,7 +8,7 @@ namespace PiercingsOwner.Negocio.ModeloDeNegocio;
 /// <summary>
 /// Represents a product with specific attributes such as ID, name, category, color, and inventory.
 /// </summary>
-internal class Producto
+public class Producto
 {
     /// <summary>
     /// Gets or sets the unique identifier for the product.

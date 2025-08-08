@@ -7,7 +7,7 @@ using PiercingsOwner.Negocio.ModeloDeNegocio;
 
 namespace PiercingsOwner.Presentacion
 {
-    internal class ProductoControlador
+    public class ProductoControlador
     {
         public bool CrearProducto(Producto producto)
         {

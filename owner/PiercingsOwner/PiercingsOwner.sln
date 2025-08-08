@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiercingsOwner", "PiercingsOwner.csproj", "{B10E6718-26D2-4FA9-A98E-45E944145B85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiercingsOwner.Tests", "..\PiercingsOwner.Tests\PiercingsOwner.Tests.csproj", "{3A579B1A-B755-48BD-A436-E531998EC8FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B10E6718-26D2-4FA9-A98E-45E944145B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10E6718-26D2-4FA9-A98E-45E944145B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10E6718-26D2-4FA9-A98E-45E944145B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A579B1A-B755-48BD-A436-E531998EC8FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A579B1A-B755-48BD-A436-E531998EC8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A579B1A-B755-48BD-A436-E531998EC8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A579B1A-B755-48BD-A436-E531998EC8FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

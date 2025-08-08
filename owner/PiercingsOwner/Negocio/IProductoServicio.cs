@@ -8,7 +8,7 @@ using PiercingsOwner.Negocio.ModeloDeNegocio;
 
 namespace PiercingsOwner.Negocio
 {
-    internal interface IProductoServicio
+    public interface IProductoServicio
     {
         bool CrearProducto(Producto producto);
         bool EditarProducto(Producto producto);
