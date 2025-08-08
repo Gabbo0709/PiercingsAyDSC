@@ -28,7 +28,7 @@ namespace PiercingsOwner.Datos
         /// </summary>
         public ProductoRepositorio()
         {
-            _connectionString = "server=localhost;port=3306;database=PiercingsDB;uid=sa;password=123456;";
+            _connectionString = "server=localhost;port=3306;database=PiercingsDB;uid=root;";
             _connection = new MySqlConnection(_connectionString);
             ProbarConexion();
         }
@@ -248,6 +248,7 @@ namespace PiercingsOwner.Datos
         {
             try
             {
+                AbrirConexion();
                 Producto p = new Producto()
                 {
                     Nombre = producto.Nombre,
@@ -279,6 +280,7 @@ namespace PiercingsOwner.Datos
         {
             try
             {
+                AbrirConexion();
                 string query = "UPDATE Productos SET Nombre = @Nombre, CategoriaId = @CategoriaId, Color = @Color, Inventario = @Inventario WHERE Id = @Id";
                 MySqlCommand command = new MySqlCommand(query, _connection);
                 command.Parameters.AddWithValue("@Id", producto.Id);
