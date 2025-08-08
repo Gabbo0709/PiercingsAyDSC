@@ -1,4 +1,5 @@
 ﻿using PiercingsOwner.Negocio.ModeloDeNegocio;
+using PiercingsOwner.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,52 @@ namespace PiercingsOwner.Negocio
 {
     internal class ProductoServicio : IProductoServicio
     {
+        private readonly IProductoRepositorio _productoRepositorio;
+
+        public ProductoServicio()
+        {
+            _productoRepositorio = new ProductoRepositorio();
+        }
+
         public bool CrearProducto(Producto producto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _productoRepositorio.Guardar(producto);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool EditarProducto(Producto producto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _productoRepositorio.Guardar(producto);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<Producto> FiltrarProductosPorCategoria(List<Categoria> categorias)
         {
-            throw new NotImplementedException();
+            return _productoRepositorio.BuscarPorCategoria(categorias);
         }
 
         public Producto ObtenerProductoPorId(int id)
         {
-            throw new NotImplementedException();
+            return _productoRepositorio.BuscarPorId(id);
         }
 
         public List<Producto> ObtenerProductos()
         {
-            throw new NotImplementedException();
+            return _productoRepositorio.BuscarTodos();
         }
     }
 }

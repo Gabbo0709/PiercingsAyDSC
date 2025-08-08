@@ -218,6 +218,43 @@ namespace PiercingsOwner.Datos
             try
             {
                 AbrirConexion();
+                if (producto.Id <= 0)
+                {
+                    producto = Crear(producto) ?? producto;
+                }
+                else
+                {
+                    var editado = Editar(producto);
+                    if (editado == null)
+                    {
+                        throw new InvalidOperationException("No se pudo editar el producto.");
+                    }
+                }
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar producto: {ex.Message}");
+                producto.Id = -1;
+                throw new InvalidOperationException("Error al guardar el producto.");
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
+        public Producto? Crear(Producto producto)
+        {
+            try
+            {
+                Producto p = new Producto()
+                {
+                    Nombre = producto.Nombre,
+                    Categoria = producto.Categoria,
+                    Color = producto.Color,
+                    Inventario = producto.Inventario
+                };
                 string query = "INSERT INTO Productos (Nombre, CategoriaId, Color, Inventario) VALUES (@Nombre, @CategoriaId, @Color, @Inventario)";
                 MySqlCommand command = new MySqlCommand(query, _connection);
                 command.Parameters.AddWithValue("@Nombre", producto.Nombre);
@@ -225,14 +262,44 @@ namespace PiercingsOwner.Datos
                 command.Parameters.AddWithValue("@Color", producto.Color);
                 command.Parameters.AddWithValue("@Inventario", producto.Inventario);
                 command.ExecuteNonQuery();
-
-                producto.Id = (int)command.LastInsertedId;
-                return producto;
+                p.Id = (int)command.LastInsertedId;
+                return p;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al guardar producto: {ex.Message}");
-                throw new InvalidOperationException("Error al guardar el producto.");
+                Console.WriteLine($"Error al crear producto: {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+        public Producto? Editar(Producto producto)
+        {
+            try
+            {
+                string query = "UPDATE Productos SET Nombre = @Nombre, CategoriaId = @CategoriaId, Color = @Color, Inventario = @Inventario WHERE Id = @Id";
+                MySqlCommand command = new MySqlCommand(query, _connection);
+                command.Parameters.AddWithValue("@Id", producto.Id);
+                command.Parameters.AddWithValue("@Nombre", producto.Nombre);
+                command.Parameters.AddWithValue("@CategoriaId", (int)producto.Categoria);
+                command.Parameters.AddWithValue("@Color", producto.Color);
+                command.Parameters.AddWithValue("@Inventario", producto.Inventario);
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return producto;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al editar producto: {ex.Message}");
+                return null;
             }
             finally
             {
