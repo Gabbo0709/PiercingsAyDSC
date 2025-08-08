@@ -9,6 +9,9 @@ public class ProductoRepositorioTest
     public void ConexionTest()
     {
         var repo = new ProductoRepositorio();
-        var productos = repo.ProbarConexion();
+        var conexion = repo.ProbarConexion();
+        Assert.IsTrue(conexion);
     }
+
+
 }
