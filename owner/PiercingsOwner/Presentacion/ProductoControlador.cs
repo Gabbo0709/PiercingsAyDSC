@@ -19,12 +19,12 @@ namespace PiercingsOwner.Presentacion
         }
         public Producto VerDetallesProducto(int id)
         {
-            // Solución: Usar inicialización de objeto para establecer todos los miembros requeridos  
+            // Solución: Usar inicialización de objeto para establecer todos los miembros requeridos
             return new Producto
             {
                 Id = id,
-                Nombre = "Nombre",
-                Categoria = Categoria.ANILLO,
+                Nombre = "Producto de Ejemplo",
+                Categoria = Categoria.ANILLO, // Asignar una categoría por defecto
                 Color = "Rojo",
                 Inventario = 100
             };
